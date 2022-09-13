@@ -1,22 +1,26 @@
-const { Scehma, model } = require('mongoose');
-const { schema } = require('./Thought');
+const { 
+    Schema, 
+    model,
+ } = require('mongoose');
 
-const userSchema = new schema({
+ 
+const userSchema = new Schema({
+
     username: {
         type: String,
         unique: true,
         required: true,
-        trim: true
+        trim: true,
     },
 
     email: {
         type: String,
         required: true,
         unique: true,
-        match:  [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/],
+        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/],
     },
 
-    freinds: [{
+    friends: [{
         type: Schema.Types.ObjectId,
         ref: "User"
     }],
@@ -25,6 +29,7 @@ const userSchema = new schema({
         type: Schema.Types.ObjectId,
         ref: 'Thought'
     }],
+
 }, {
     toJSON: {
         virtuals: true,
@@ -37,4 +42,5 @@ userSchema.virtual('friendCount').get(function() {
     return friendCount
 });
 
-module.exports = model ('User', userSchema);
+
+module.exports = model('User', userSchema);

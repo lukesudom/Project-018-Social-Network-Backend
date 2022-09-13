@@ -1,0 +1,24 @@
+{
+  "name": "project-018-social-network-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukesudom/Project-018-Social-Network-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukesudom/Project-018-Social-Network-Backend/issues"
+  },
+  "homepage": "https://github.com/lukesudom/Project-018-Social-Network-Backend#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  }
+}

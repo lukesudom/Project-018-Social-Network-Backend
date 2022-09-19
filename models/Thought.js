@@ -1,6 +1,10 @@
 // Requirements
 
 const { Schema, model } = require('mongoose');
+
+
+// Reaction Schema
+//DONE
 const reactionSchema = new Schema({
     author: {
         type: String,
@@ -30,6 +34,9 @@ const reactionSchema = new Schema({
 
     id: false
 })
+
+//Thought Schema
+//DONE
 
 const thoughtSchema = new Schema({
     author: {
@@ -61,6 +68,8 @@ const thoughtSchema = new Schema({
     id: false
 })
 
+//Date creation
+
 function formatDate() {
     console.log(`Current date: ${this.createdAt}`)
 }
@@ -68,5 +77,8 @@ function formatDate() {
 thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
+
+
+//Exports
 
 module.exports = model('Thought', thoughtSchema);

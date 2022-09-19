@@ -1,17 +1,26 @@
+//Requirements
+
 const mongoose = require('mongoose');
 const db = require('./config/db-connect');
 const express = require('express');
 const { User, Thought } = require ('./models');
 
+//PORT
 const PORT = process.env.PORT || 3001;
+
+//Route requirements
 
 const routes = require ('./routes');
 const app = express();
+
+//Express
 
 app.use(express.json());
 app.use(express.urlencoded({ extended:true }));
 
 app.use(routes);
+
+//DB seeding
 
 db.once('open', async () => {
     console.log('Database opened');

@@ -1,7 +1,11 @@
+//Requirements
+
 const { 
     Schema, 
     model,
  } = require('mongoose');
+
+
 
  
 const userSchema = new Schema({
@@ -37,10 +41,14 @@ const userSchema = new Schema({
     id: false
 });
 
+
+//Friend counts
+
 userSchema.virtual('friendCount').get(function() {
     const friendCount = this.friends.length;
     return friendCount
 });
 
+//Exports
 
 module.exports = model('User', userSchema);
